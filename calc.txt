@@ -1,0 +1,193 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package calc;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+/**
+ *
+ * @author ISTWorkshop
+ */
+public class Calc extends JFrame implements ActionListener {
+    JButton  b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bp,bm,bs,bd,bc,be,bdot;
+    JTextField t;
+    int op;
+    double a,b,c;
+    public Calc(){
+        
+         b1 =new JButton("1");
+         b2 =new JButton("2");
+         b3 =new JButton("3");
+         b4 =new JButton("4");
+         b5 =new JButton("5");
+         b6 =new JButton("6");
+         b7 =new JButton("7");
+         b8 =new JButton("8");
+         b9 =new JButton("9");
+         b0 =new JButton("0");
+         bp =new JButton("+");
+         bs=new JButton("-");
+         bm =new JButton("*");
+         bd =new JButton("/");
+         bc =new JButton("CLEAR");
+         be =new JButton("=");
+         bdot =new JButton(".");
+        t =new JTextField();
+        
+       t.setBounds(10, 30, 300, 60);
+       bc.setBounds(10, 100, 300 , 50);
+       bp.setBounds(240, 280, 70, 30);
+       bs.setBounds(240, 240, 70, 30);
+       bm.setBounds(240, 200, 70, 30);
+       bd.setBounds(240, 160, 70, 30);
+       b9.setBounds(10, 160, 70, 30);
+       b8.setBounds(90, 160, 70, 30);
+       b7.setBounds(165, 160, 70, 30);
+       b6.setBounds(10, 200, 70, 30);
+       b5.setBounds(90, 200, 70, 30);
+       b4.setBounds(165, 200, 70, 30);
+       b3.setBounds(10, 240, 70, 30);
+       b2.setBounds(90, 240, 70, 30);
+       b1.setBounds(165, 240, 70, 30);
+       b0.setBounds(90, 280, 70, 30);
+       be.setBounds(165, 280, 70, 30);
+       bdot.setBounds(10, 280, 70, 30);
+        add(t);
+        add(bc);
+        add(bp);
+        add(bs);
+        add(bm);
+        add(bd);
+        add(b7);
+        add(b8);
+        add(b9);
+        add(b4);
+        add(b5);
+        add(b6);
+        add(b1);
+        add(b2);
+        add(b3);
+        add(bdot);
+        add(b0);
+        add(be);
+        
+        setTitle("Calculator");
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(330,370);
+        setResizable(false);
+        setVisible(true);
+        
+        b0.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        bp.addActionListener(this);
+        bs.addActionListener(this);
+        bm.addActionListener(this);
+        bd.addActionListener(this);
+        bc.addActionListener(this);
+        be.addActionListener(this);
+        bdot.addActionListener(this);
+        
+        
+    }
+
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getSource()==b0)
+            t.setText(t.getText().concat("0"));
+        if(e.getSource()==b1)
+            t.setText(t.getText().concat("1"));
+        if(e.getSource()==b2)
+            t.setText(t.getText().concat("2"));
+        if(e.getSource()==b3)
+            t.setText(t.getText().concat("3"));
+        if(e.getSource()==b4)
+            t.setText(t.getText().concat("4"));
+        if(e.getSource()==b5)
+            t.setText(t.getText().concat("5"));
+        if(e.getSource()==b6)
+            t.setText(t.getText().concat("6"));
+        if(e.getSource()==b7)
+            t.setText(t.getText().concat("7"));
+        if(e.getSource()==b8)
+            t.setText(t.getText().concat("8"));
+        if(e.getSource()==b9)
+            t.setText(t.getText().concat("9"));
+        if(e.getSource()==bdot)
+            t.setText(t.getText().concat("."));
+        if(e.getSource()==bc)
+            t.setText("");
+        if(e.getSource()==bp){
+            a = Double.parseDouble(t.getText());
+            op =1;
+            t.setText("");
+        }
+        if(e.getSource()==bs){
+           a = Double.parseDouble(t.getText());
+            op=2;
+            t.setText("");
+        }
+        if(e.getSource()==bm){
+            a = Double.parseDouble(t.getText());
+            op=3;
+            t.setText("");
+        }
+        if(e.getSource()==bd){
+            a = Double.parseDouble(t.getText());
+            op=4;
+            t.setText("");
+        }
+        if(e.getSource()==be){
+            b=Double.parseDouble(t.getText());
+            switch(op)
+            {
+                case 1:
+                {
+                    c=a+b;
+                    t.setText(""+c);
+                    break;
+                }
+                case 2:
+                {
+                    c=a-b;
+                    t.setText(""+c);
+                    break;
+                }
+                case 3:
+                {
+                    c=a*b;
+                    t.setText(""+c);
+                    break;
+                }
+                case 4:
+                {
+                    c=a/b;
+                    t.setText(""+c);
+                    break;
+                }
+            }
+           
+        }
+           
+        
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Calc c=new Calc();
+        // TODO code application logic here
+    }
+    
+}
