@@ -1,0 +1,116 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package validate;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.List;
+import java.util.ArrayList;
+/**
+ *
+ * @author ISTWorkshop
+ */
+class contacts
+{   String u_name;
+    String pass;
+    
+    public contacts( String l, String p)
+    {
+        
+        u_name=l;
+        pass=p;
+    }
+
+}
+public class Validate extends JFrame  implements ActionListener{
+    JFrame j;
+    JLabel u,p,s,ns;
+    JTextField tu;
+    JPasswordField tp;
+    JButton b;
+    String a,c;
+    ArrayList<String> ls;
+    ArrayList<String> ls1;
+    public Validate(){
+        ls = new ArrayList<String>();
+         ls1 = new ArrayList<String>();
+    u = new JLabel("USERNAME");
+    p = new JLabel("PASSWORD");   
+    s = new JLabel("SUCCESSFUL!!");
+    ns = new JLabel("NOT SUCCESSFUL!!");
+    tu = new JTextField();      
+    tp = new JPasswordField();   
+    b = new JButton("Click!!");
+    
+    u.setBounds(10, 10,100,20);
+    p.setBounds(10, 40,100,20);
+    tu.setBounds(100,10,100,20);
+    tp.setBounds(100,40,100,20);
+    b.setBounds(70,80 ,70, 20);
+    s.setBounds(70,140 ,70, 20);
+    ns.setBounds(70,180 ,70, 20);
+    add(u);
+    
+    add(tu);
+    add(p);
+    add(tp);
+    add(b);
+    
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(240,220);
+        //setResizable(false);
+        setVisible(true);
+        
+        b.addActionListener(this);
+        
+        
+        
+        ls.add("ethan");
+        ls.add("alberto");
+        ls.add("abc");
+        ls1.add("1234");
+        ls1.add("123");
+        ls1.add("12");
+        
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Validate v =new Validate();
+      
+        
+       
+        
+        // TODO code application logic here
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+         
+        if(e.getSource()==b)
+            a= tu.getText();
+            c= tp.getText();
+           
+           for(int i=0;i<ls.size();i++)
+           {
+             if(ls.get(i).equals(a) && ls1.get(i).equals(c))
+           
+           {
+               
+              JOptionPane.showMessageDialog(j, "SUCCESS");
+           return;
+           }
+           }
+                JOptionPane.showMessageDialog(j, "TRY AGAIN");
+           
+           
+            
+    }
+    
+}
